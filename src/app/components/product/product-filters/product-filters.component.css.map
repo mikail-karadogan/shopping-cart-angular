@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "product-filters.component.scss"
+    ],
+    "names": [],
+    "file": "product-filters.component.css"
+}

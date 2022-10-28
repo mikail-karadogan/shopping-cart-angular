@@ -1,0 +1,20 @@
+.product-image {
+  img {
+    display: block;
+    &.hidden {
+      display: none;
+    }
+  }
+
+  &:hover {
+    img {
+      display: none;
+      &.hidden {
+        display: block;
+      }
+      &.active {
+        display: block;
+      }
+    }
+  }
+}

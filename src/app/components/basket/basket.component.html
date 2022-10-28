@@ -1,0 +1,50 @@
+<div class="basket" *ngIf="isBasket">
+  <h3 class="basket-title">
+    Basket
+    <button
+      type="button"
+      class="btn text-white float-end"
+      (click)="closeBasket()"
+    >
+      x
+    </button>
+  </h3>
+  <ul>
+    <li *ngFor="let item of basketData">
+      <a href="#" class="basket-item">
+        <div class="basket-item-wrapper">
+          <img src="{{ item.basketItem.image_set[0].url }}" alt="" />
+          <div>
+            <h6>{{ item.basketItem.title }}</h6>
+            <span class="text-center d-block text-success">{{
+              item.basketItem.price + item.basketItem.currency
+            }}</span>
+          </div>
+          <button
+            (click)="removeFromCart(item.basketItem.id)"
+            class="btn btn-danger"
+          >
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="addToCart">
+          <button (click)="decrease(item.basketItem.id)">-</button>
+          <input
+            type="text"
+            class="text-center"
+            disabled
+            value="{{ item.quantity }}"
+          />
+          <button (click)="increase(item.basketItem.id)">+</button>
+        </div>
+      </a>
+    </li>
+  </ul>
+  <div class="basket-info">
+    Total Price:
+    <span *ngIf="totalPrice" class="text-success">{{
+      totalPrice | currency: "TRY":"symbol-narrow":"1.2-2"
+    }}</span>
+    <span *ngIf="!totalPrice" class="text-danger">0</span>
+  </div>
+</div>

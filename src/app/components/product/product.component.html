@@ -1,0 +1,33 @@
+<div class="col" *ngFor="let item of productsData; let i = index">
+  <div class="card h-100">
+    <div class="product-image">
+      <img
+        src="{{ item.image_set[0].url }}"
+        class="card-img-top"
+        alt="..."
+        [ngClass]="{ active: item.image_set.length == 1 }"
+      />
+      <img
+        *ngIf="item.image_set[1]"
+        src="{{ item.image_set[1]?.url }}"
+        class="card-img-top hidden"
+        alt="..."
+      />
+    </div>
+    <div class="card-body">
+      <h5 class="card-title h6">{{ item.title | uppercase }}</h5>
+      <p class="card-text h6 text-md-end text-center">
+        {{ item.price + item.currency }}
+      </p>
+      <button
+        (click)="addToCart(item)"
+        data-quantity="1"
+        data-id="{{ item.id }}"
+        type="button"
+        class="btn btn-outline-primary text-center d-block m-auto js-add-cart"
+      >
+        add to cart
+      </button>
+    </div>
+  </div>
+</div>

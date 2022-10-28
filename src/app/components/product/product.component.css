@@ -1,0 +1,24 @@
+.product-image {
+  min-height: 250px;
+}
+
+.product-image img {
+  display: block;
+}
+
+.product-image img.hidden {
+  display: none;
+}
+
+.product-image:hover img {
+  display: none;
+}
+
+.product-image:hover img.hidden {
+  display: block;
+}
+
+.product-image:hover img.active {
+  display: block;
+}
+/*# sourceMappingURL=product.component.css.map */
